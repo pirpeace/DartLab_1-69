@@ -24,7 +24,23 @@ void main() {
   print('All subjects in map: ${studentScores.keys}');
   print('All scores in map: ${studentScores.values}');
 
-  List<String> new_Sub = subjects.where((word) => word.contains('a')).toList();
+  Map<String, int> result = {};
 
-  print('Subjects have a: $new_Sub');
+  studentScores.forEach((subject, score) {
+    if (subject.toLowerCase().contains('a')) {
+      result[subject] = score;
+    }
+  });
+
+  print('Subjects and Score that contain "a" : $result');
+
+  Map<String, int> results = {};
+
+  studentScores.forEach((subject, score) {
+    if (score > 50) {
+      results[subject] = score;
+    }
+  });
+
+  print('Studentscores more than 50 : $results');
 }
